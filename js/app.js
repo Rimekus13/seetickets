@@ -1,3 +1,5 @@
+//* Creation d'un utilisateur
+
 const createUser = document.querySelector("#createUser");
 
 createUser.addEventListener("click", () => {
@@ -30,7 +32,7 @@ createUser.addEventListener("click", () => {
   const url = "https://front.apirecette.digitick-ppe.com/v1.1/user/users";
 
   const headers = {
-    Authorization: "Bearer f119a6cf7085f9c53bdc7a639940c442605a436c",
+    Authorization: "Bearer 645df60e63c743809f7cc5f33a54e9d222d8bc3f",
     "Content-Type": "application/json",
   };
   fetch(url, {
@@ -53,7 +55,7 @@ fetch1.addEventListener("click", () => {
     "https://front.apirecette.digitick-ppe.com/v1.1/distribution/salesChannels/13357/calendar/day/2023-06-10?lang=fr";
 
   const headers = {
-    Authorization: "Bearer f119a6cf7085f9c53bdc7a639940c442605a436c",
+    Authorization: "Bearer 645df60e63c743809f7cc5f33a54e9d222d8bc3f",
   };
   fetch(url, {
     headers: headers,
@@ -73,7 +75,7 @@ fetch2.addEventListener("click", () => {
     "https://front.apirecette.digitick-ppe.com/v1.1/distribution/salesChannels/13357/shows/9210959/prices?limit=10&offset=0&lang=fr";
 
   const headers = {
-    Authorization: "Bearer f119a6cf7085f9c53bdc7a639940c442605a436c",
+    Authorization: "Bearer 645df60e63c743809f7cc5f33a54e9d222d8bc3f",
   };
   fetch(url, {
     headers: headers,
@@ -97,7 +99,7 @@ fetch3.addEventListener("click", () => {
   const url = "https://front.apirecette.digitick-ppe.com/v1.1/order/carts";
 
   const headers = {
-    Authorization: "Bearer f119a6cf7085f9c53bdc7a639940c442605a436c",
+    Authorization: "Bearer 645df60e63c743809f7cc5f33a54e9d222d8bc3f",
     "Content-Type": "application/json",
   };
   fetch(url, {
@@ -129,10 +131,10 @@ fetch4.addEventListener("click", () => {
   };
 
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019271/entries/createByPrices";
+    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019323/entries/createByPrices";
 
   const headers = {
-    Authorization: "Bearer f119a6cf7085f9c53bdc7a639940c442605a436c",
+    Authorization: "Bearer 645df60e63c743809f7cc5f33a54e9d222d8bc3f",
     "Content-Type": "application/json",
   };
   fetch(url, {
@@ -152,10 +154,31 @@ const fetch5 = document.querySelector("#fetch5");
 
 fetch5.addEventListener("click", () => {
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019271/salesChannels/13357/check?userId=77204063";
+    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019323/salesChannels/13357/check?userId=77204063";
 
   const headers = {
-    Authorization: "Bearer f119a6cf7085f9c53bdc7a639940c442605a436c",
+    Authorization: "Bearer 645df60e63c743809f7cc5f33a54e9d222d8bc3f",
+    "Content-Type": "application/json",
+  };
+
+  fetch(url, {
+    headers: headers,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    });
+});
+
+//* Afficher le panier
+
+const showPanier = document.querySelector("#showPanier");
+
+showPanier.addEventListener("click", () => {
+  const url = "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019323";
+
+  const headers = {
+    Authorization: "Bearer 645df60e63c743809f7cc5f33a54e9d222d8bc3f",
     "Content-Type": "application/json",
   };
 
@@ -174,22 +197,42 @@ const fetch6 = document.querySelector("#fetch6");
 
 fetch6.addEventListener("click", () => {
   const data = {
-    showId: 9210959,
-    entries: [
+    userId: 77204064,
+    deliveryModeId: 1,
+    supportTypeId: 1,
+    address: {
+      label: "Digitick - jacques",
+      companyName: "Digitick",
+      name: "Lantin",
+      firstname: "Jacques",
+      address: "35 Quai du Lazaret",
+      additional: null,
+      additional2: null,
+      additional3: null,
+      postOfficeBox: null,
+      city: "Marseille",
+      zipCode: 13002,
+      cedex: null,
+      cedexNum: null,
+      civilityId: 1,
+      countryFormatId: 1,
+    },
+    paymentMethod: [
       {
-        priceId: 2868423,
-        accessCode: "",
-        nbSeats: 1,
-        membershipTicketId: null,
+        id: 1,
+        montantCents: 1200,
       },
     ],
+    refBank: "4564g65-fDXGHSD45",
+    deviceId: 12654,
+    salerId: 1200,
   };
 
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/order/transactions/carts/288019271/createOrderFromCart";
+    "https://front.apirecette.digitick-ppe.com/v1.1/order/transactions/carts/288019323/createOrderFromCart";
 
   const headers = {
-    Authorization: "Bearer f119a6cf7085f9c53bdc7a639940c442605a436c",
+    Authorization: "Bearer 645df60e63c743809f7cc5f33a54e9d222d8bc3f",
     "Content-Type": "application/json",
   };
   fetch(url, {
@@ -199,6 +242,6 @@ fetch6.addEventListener("click", () => {
   })
     .then((response) => response.json())
     .then((responseData) => {
-      console.log(responseData._embedded.entries[0]);
+      console.log(responseData);
     });
 });
