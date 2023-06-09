@@ -119,3 +119,8 @@ html {
   justify-content: space-between;
   align-items: center;
 }
+
+.prixDispo {
+  display: flex;
+  flex-direction: column;
+}

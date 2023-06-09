@@ -4,22 +4,22 @@ const createUser = document.querySelector("#createUser");
 
 createUser.addEventListener("click", () => {
   const data = {
-    firstName: "Alex",
-    lastName: "Alex",
+    firstName: null,
+    lastName: null,
     civility: "mr",
-    login: "13vlxx",
-    cellPhoneNumber: "55566588",
-    fixedPhoneNumber: "55566588",
+    login: null,
+    cellPhoneNumber: null,
+    fixedPhoneNumber: null,
     email: "alex@gmail.com",
-    password: "*********",
-    address: "123 Main St",
-    additionalAddress: "Building A1",
-    zipcode: "13001",
-    city: "Anytown",
+    password: null,
+    address: null,
+    additionalAddress: null,
+    zipcode: null,
+    city: null,
     countryId: 1,
-    birthDate: "1999-01-25",
+    birthDate: null,
     isInvitedAccount: false,
-    facebookUserId: "12314",
+    facebookUserId: null,
     creationSalesChannelId: 13357,
     userTypeId: 64,
     optins: {
@@ -32,7 +32,7 @@ createUser.addEventListener("click", () => {
   const url = "https://front.apirecette.digitick-ppe.com/v1.1/user/users";
 
   const headers = {
-    Authorization: "Bearer 0d81b4a770f2bbbc6a8b27bd85193aca446a9180",
+    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
     "Content-Type": "application/json",
   };
   fetch(url, {
@@ -52,14 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
     "https://front.apirecette.digitick-ppe.com/v1.1/distribution/salesChannels/13357/calendar/day/2023-06-10?lang=fr";
 
   const headers = {
-    Authorization: "Bearer 0d81b4a770f2bbbc6a8b27bd85193aca446a9180",
+    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
   };
   fetch(url, {
     headers: headers,
   })
     .then((response) => response.json())
     .then((data) => {
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 1; i++) {
         const event = data._embedded.hours[i];
         console.log(event);
         const dateString = "2023-06-10 16:00:00";
@@ -83,17 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <span class="event-date">${finalFormattedDate} - ${event.dateStart
           .slice(11)
           .slice(0, -3)}</span> 
-              <div class="places">
-                <span>Places classiques</span>
-                <div class="select-places">
-                  <h3>18£</h3>
-                  <button>+</button><span>0</span><button>-</button>
-                </div>
-                <span>Places classiques</span>
-                <div class="select-places">
-                  <h3>15£</h3>
-                  <button class="incrementPlace">-</button><span class="compteur">0</span><button class="decrementPlace">+</button>
-                </div>
+              <div id="places-dispo" class="places">
               </div>
             </div>
           </article>
@@ -103,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const articles = document.querySelectorAll(".event");
       articles.forEach((article) => {
         article.addEventListener("click", () => {
-          article.classList.toggle("show");
+          article.classList.add("show");
         });
       });
 
@@ -122,10 +112,10 @@ const fetch2 = document.querySelector("#fetch2");
 
 fetch2.addEventListener("click", () => {
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/distribution/salesChannels/13357/shows/9210959/prices?limit=10&offset=0&lang=fr";
+    "https://front.apirecette.digitick-ppe.com/v1.1/distribution/salesChannels/13357/shows/9210959/prices?limit=100&offset=0&lang=fr";
 
   const headers = {
-    Authorization: "Bearer 0d81b4a770f2bbbc6a8b27bd85193aca446a9180",
+    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
   };
   fetch(url, {
     headers: headers,
@@ -149,7 +139,7 @@ fetch3.addEventListener("click", () => {
   const url = "https://front.apirecette.digitick-ppe.com/v1.1/order/carts";
 
   const headers = {
-    Authorization: "Bearer 0d81b4a770f2bbbc6a8b27bd85193aca446a9180",
+    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
     "Content-Type": "application/json",
   };
   fetch(url, {
@@ -181,10 +171,10 @@ fetch4.addEventListener("click", () => {
   };
 
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019372/entries/createByPrices";
+    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019394/entries/createByPrices";
 
   const headers = {
-    Authorization: "Bearer 0d81b4a770f2bbbc6a8b27bd85193aca446a9180",
+    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
     "Content-Type": "application/json",
   };
   fetch(url, {
@@ -204,10 +194,10 @@ const fetch5 = document.querySelector("#fetch5");
 
 fetch5.addEventListener("click", () => {
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019372/salesChannels/13357/check?userId=77204063";
+    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019394/salesChannels/13357/check?userId=77204063";
 
   const headers = {
-    Authorization: "Bearer 0d81b4a770f2bbbc6a8b27bd85193aca446a9180",
+    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
     "Content-Type": "application/json",
   };
 
@@ -225,10 +215,10 @@ fetch5.addEventListener("click", () => {
 const showPanier = document.querySelector("#showPanier");
 
 showPanier.addEventListener("click", () => {
-  const url = "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019372";
+  const url = "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019394";
 
   const headers = {
-    Authorization: "Bearer 0d81b4a770f2bbbc6a8b27bd85193aca446a9180",
+    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
     "Content-Type": "application/json",
   };
 
@@ -279,10 +269,10 @@ fetch6.addEventListener("click", () => {
   };
 
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/order/transactions/carts/288019372/createOrderFromCart";
+    "https://front.apirecette.digitick-ppe.com/v1.1/order/transactions/carts/288019394/createOrderFromCart";
 
   const headers = {
-    Authorization: "Bearer 0d81b4a770f2bbbc6a8b27bd85193aca446a9180",
+    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
     "Content-Type": "application/json",
   };
   fetch(url, {
@@ -305,7 +295,7 @@ getPDF.addEventListener("click", () => {
     "https://front.apirecette.digitick-ppe.com/v1.1/order/transactions/159760461/readTicketListPDF";
 
   const headers = {
-    Authorization: "Bearer 0d81b4a770f2bbbc6a8b27bd85193aca446a9180",
+    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
     "Content-Type": "application/json",
   };
 
@@ -315,5 +305,54 @@ getPDF.addEventListener("click", () => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+    });
+});
+
+//* Prix dispo
+
+const prixDispo = document.querySelector("#prixDispo");
+
+prixDispo.addEventListener("click", () => {
+  const url =
+    "https://front.apirecette.digitick-ppe.com/v1.1/distribution/salesChannels/13357/shows/9210959/readPricesAvailability?lang=fr";
+
+  const url2 =
+    "https://front.apirecette.digitick-ppe.com/v1.1/distribution/salesChannels/13357/shows/9210959/prices?limit=100&offset=0&lang=fr";
+
+  const headers = {
+    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
+    "Content-Type": "application/json",
+  };
+
+  let prixDispo; // Variable pour stocker les prix disponibles
+
+  fetch(url, {
+    headers: headers,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      prixDispo = data._embedded.prices.map((price) => price.id);
+    })
+    .then(() => {
+      fetch(url2, {
+        headers: headers,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const idGeneraux = data._embedded.prices;
+          const prixGeneraux = idGeneraux.filter((prix) => prixDispo.includes(prix.id));
+          console.log(prixGeneraux);
+
+          const tarifsDispo = document.querySelector("#tarifsDispo");
+
+          prixGeneraux.forEach((prix) => {
+            const prixHtml = `
+            <div class="prixDispo">
+              ${prix.name} <br />
+              ${prix.valueCents} <br /><br />
+            </div>`;
+            tarifsDispo.innerHTML += prixHtml;
+          });
+        });
     });
 });
