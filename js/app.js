@@ -32,7 +32,7 @@ createUser.addEventListener("click", () => {
   const url = "https://front.apirecette.digitick-ppe.com/v1.1/user/users";
 
   const headers = {
-    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
+    Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
     "Content-Type": "application/json",
   };
   fetch(url, {
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "https://front.apirecette.digitick-ppe.com/v1.1/distribution/salesChannels/13357/calendar/day/2023-06-10?lang=fr";
 
   const headers = {
-    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
+    Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
   };
   fetch(url, {
     headers: headers,
@@ -115,7 +115,7 @@ fetch2.addEventListener("click", () => {
     "https://front.apirecette.digitick-ppe.com/v1.1/distribution/salesChannels/13357/shows/9210959/prices?limit=100&offset=0&lang=fr";
 
   const headers = {
-    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
+    Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
   };
   fetch(url, {
     headers: headers,
@@ -139,7 +139,7 @@ fetch3.addEventListener("click", () => {
   const url = "https://front.apirecette.digitick-ppe.com/v1.1/order/carts";
 
   const headers = {
-    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
+    Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
     "Content-Type": "application/json",
   };
   fetch(url, {
@@ -149,7 +149,7 @@ fetch3.addEventListener("click", () => {
   })
     .then((response) => response.json())
     .then((responseData) => {
-      console.log(responseData);
+      alert(`Panier crée, id ${responseData.cartId}:`);
     });
 });
 
@@ -171,10 +171,10 @@ fetch4.addEventListener("click", () => {
   };
 
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019394/entries/createByPrices";
+    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019415/entries/createByPrices";
 
   const headers = {
-    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
+    Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
     "Content-Type": "application/json",
   };
   fetch(url, {
@@ -194,10 +194,10 @@ const fetch5 = document.querySelector("#fetch5");
 
 fetch5.addEventListener("click", () => {
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019394/salesChannels/13357/check?userId=77204063";
+    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019415/salesChannels/13357/check?userId=77204063";
 
   const headers = {
-    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
+    Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
     "Content-Type": "application/json",
   };
 
@@ -215,10 +215,10 @@ fetch5.addEventListener("click", () => {
 const showPanier = document.querySelector("#showPanier");
 
 showPanier.addEventListener("click", () => {
-  const url = "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019394";
+  const url = "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019415";
 
   const headers = {
-    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
+    Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
     "Content-Type": "application/json",
   };
 
@@ -269,10 +269,10 @@ fetch6.addEventListener("click", () => {
   };
 
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/order/transactions/carts/288019394/createOrderFromCart";
+    "https://front.apirecette.digitick-ppe.com/v1.1/order/transactions/carts/288019415/createOrderFromCart";
 
   const headers = {
-    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
+    Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
     "Content-Type": "application/json",
   };
   fetch(url, {
@@ -295,7 +295,7 @@ getPDF.addEventListener("click", () => {
     "https://front.apirecette.digitick-ppe.com/v1.1/order/transactions/159760461/readTicketListPDF";
 
   const headers = {
-    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
+    Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
     "Content-Type": "application/json",
   };
 
@@ -320,7 +320,7 @@ prixDispo.addEventListener("click", () => {
     "https://front.apirecette.digitick-ppe.com/v1.1/distribution/salesChannels/13357/shows/9210959/prices?limit=100&offset=0&lang=fr";
 
   const headers = {
-    Authorization: "Bearer 00c9c65aed78685ad7a3b4f40fe8318d4951a54e",
+    Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
     "Content-Type": "application/json",
   };
 
@@ -346,13 +346,41 @@ prixDispo.addEventListener("click", () => {
           const tarifsDispo = document.querySelector("#tarifsDispo");
 
           prixGeneraux.forEach((prix) => {
+            const prixEnEuros = (prix.valueCents / 100).toFixed(2);
+
             const prixHtml = `
-            <div class="prixDispo">
-              ${prix.name} <br />
-              ${prix.valueCents} <br /><br />
-            </div>`;
+              <div class="prixDispo">
+                ${prix.name} <br />
+                ${prixEnEuros} €
+                <button class="decrement">-</button>
+                <span id="${prix.id}" class="compteur">0</span>
+                <button class="increment">+</button>
+                <br /><br />
+              </div>`;
             tarifsDispo.innerHTML += prixHtml;
+            const decrement = document.querySelectorAll(".decrement");
+            decrement.forEach((button) => {
+              const compteur = button.parentElement.querySelector(".compteur");
+              button.addEventListener("click", () => {
+                let count = parseInt(compteur.textContent);
+                if (count > 0) {
+                  count--;
+                  compteur.textContent = count;
+                }
+              });
+            });
+
+            const increment = document.querySelectorAll(".increment");
+            increment.forEach((button) => {
+              const compteur = button.parentElement.querySelector(".compteur");
+              button.addEventListener("click", () => {
+                let count = parseInt(compteur.textContent);
+                count++;
+                compteur.textContent = count;
+              });
+            });
           });
         });
     });
+  ("");
 });
