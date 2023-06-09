@@ -46,8 +46,6 @@ createUser.addEventListener("click", () => {
     });
 });
 
-// * Affichage des evenements
-
 document.addEventListener("DOMContentLoaded", () => {
   const evenements = document.querySelector("#evenements");
   const url =
@@ -61,7 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
   })
     .then((response) => response.json())
     .then((data) => {
-      data._embedded.hours.forEach((event) => {
+      for (let i = 0; i < 3; i++) {
+        const event = data._embedded.hours[i];
         console.log(event);
         const dateString = "2023-06-10 16:00:00";
         const date = new Date(dateString);
@@ -72,35 +71,35 @@ document.addEventListener("DOMContentLoaded", () => {
         const month = parts[2].charAt(0).toUpperCase() + parts[2].slice(1, 4).toLowerCase();
         const finalFormattedDate = day + " " + parts[1] + " " + month + " " + parts[3];
         const html = `
-            <article class="event" id="${event.eventId}">
-                <img class="event-img" src="./img/event-img-template.PNG" alt=""></img>
-                <div class="event-infos">
-                <h2 class="event-name">${event.eventName}</h2>
-                <span class="event-date">${finalFormattedDate} - ${event.dateStart
+          <article class="event" id="${event.eventId}">
+            <img class="event-img" src="./img/event-img-template.PNG" alt=""></img>
+            <div class="event-infos">
+              <h2 class="event-name">${event.eventName}</h2>
+              <span class="event-date">${finalFormattedDate} - ${event.dateStart
           .slice(11)
           .slice(0, -3)}</span>
-                </div>
-                <div class="formulaire">
+            </div>
+            <div class="formulaire">
               <span class="event-date">${finalFormattedDate} - ${event.dateStart
           .slice(11)
           .slice(0, -3)}</span> 
-          <div class="places">
-              <span>Places classiques</span>
-              <div class="select-places">
-              <h3>18£</h3>
-              <button>+</button><span>0</span><button>-</button>
+              <div class="places">
+                <span>Places classiques</span>
+                <div class="select-places">
+                  <h3>18£</h3>
+                  <button>+</button><span>0</span><button>-</button>
+                </div>
+                <span>Places classiques</span>
+                <div class="select-places">
+                  <h3>15£</h3>
+                  <button class="incrementPlace">-</button><span class="compteur">0</span><button class="decrementPlace">+</button>
+                </div>
               </div>
-              <span>Places classiques</span>
-              <div class="select-places">
-              <h3>15£</h3>
-              <button class="incrementPlace">-</button><span class="compteur">0</span><button class="decrementPlace">+</button>
-              </div>
-          </div>
             </div>
-            </article>
+          </article>
         `;
         evenements.innerHTML += html;
-      });
+      }
       const articles = document.querySelectorAll(".event");
       articles.forEach((article) => {
         article.addEventListener("click", () => {
