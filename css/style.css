@@ -121,6 +121,5 @@ html {
 }
 
 .prixDispo {
-  display: flex;
   flex-direction: column;
 }

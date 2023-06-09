@@ -346,12 +346,39 @@ prixDispo.addEventListener("click", () => {
           const tarifsDispo = document.querySelector("#tarifsDispo");
 
           prixGeneraux.forEach((prix) => {
+            const prixEnEuros = (prix.valueCents / 100).toFixed(2);
+
             const prixHtml = `
-            <div class="prixDispo">
-              ${prix.name} <br />
-              ${prix.valueCents} <br /><br />
-            </div>`;
+              <div class="prixDispo">
+                ${prix.name} <br />
+                ${prixEnEuros} €
+                <button class="decrement">-</button>
+                <span class="compteur">0</span>
+                <button class="increment">+</button>
+                <br /><br />
+              </div>`;
             tarifsDispo.innerHTML += prixHtml;
+            const decrement = document.querySelectorAll(".decrement");
+            decrement.forEach((button) => {
+              const compteur = button.parentElement.querySelector(".compteur");
+              button.addEventListener("click", () => {
+                let count = parseInt(compteur.textContent);
+                if (count > 0) {
+                  count--;
+                  compteur.textContent = count;
+                }
+              });
+            });
+
+            const increment = document.querySelectorAll(".increment");
+            increment.forEach((button) => {
+              const compteur = button.parentElement.querySelector(".compteur");
+              button.addEventListener("click", () => {
+                let count = parseInt(compteur.textContent);
+                count++;
+                compteur.textContent = count;
+              });
+            });
           });
         });
     });
