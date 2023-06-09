@@ -6,9 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SeeTickets</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="./js/app.js"></script>
+    <script src="./js/app.js" defer></script>
   </head>
   <body>
-    <h1>SeeTickets</h1>
+    <header>
+      <div class="dropdown">
+        <button id="bouton-langues">Français <span id="fleche" class="fleche-bas"></span></button>
+        <ul id="liste-langues">
+          <li><a href="#">English</a></li>
+          <li><a href="#">Italian</a></li>
+          <li><a href="#">Spanish</a></li>
+          <li><a href="#">Korean</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <h1 id="h1-title">Nos événements</h1>
+      <section id="evenements"></section>
+      <section id="tarifsDispo"></section>
+      <button id="createUser">Créer un utilisateur</button> <br /><br />
+      <button id="fetch2">Récupération des tarifs à vendre</button> <br /><br />
+      <button id="fetch3">Création d’un panier</button> <br /><br />
+      <button id="fetch4">Ajout des tarifs dans le panier</button> <br /><br />
+      <button id="showPanier">Afficher le panier</button> <br /><br />
+      <button id="fetch5">Validation du panier</button> <br /><br />
+      <button id="fetch6">Création de la transaction à partir du panier</button> <br /><br />
+      <button id="fetch7">Recevoir PDF</button> <br /><br />
+      <button id="prixDispo">Afficher prix dispo</button>
+    </main>
   </body>
 </html>
