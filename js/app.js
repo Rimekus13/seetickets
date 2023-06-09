@@ -171,7 +171,7 @@ fetch4.addEventListener("click", () => {
   };
 
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019394/entries/createByPrices";
+    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019415/entries/createByPrices";
 
   const headers = {
     Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
@@ -194,7 +194,7 @@ const fetch5 = document.querySelector("#fetch5");
 
 fetch5.addEventListener("click", () => {
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019394/salesChannels/13357/check?userId=77204063";
+    "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019415/salesChannels/13357/check?userId=77204063";
 
   const headers = {
     Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
@@ -215,7 +215,7 @@ fetch5.addEventListener("click", () => {
 const showPanier = document.querySelector("#showPanier");
 
 showPanier.addEventListener("click", () => {
-  const url = "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019394";
+  const url = "https://front.apirecette.digitick-ppe.com/v1.1/order/carts/288019415";
 
   const headers = {
     Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
@@ -269,7 +269,7 @@ fetch6.addEventListener("click", () => {
   };
 
   const url =
-    "https://front.apirecette.digitick-ppe.com/v1.1/order/transactions/carts/288019394/createOrderFromCart";
+    "https://front.apirecette.digitick-ppe.com/v1.1/order/transactions/carts/288019415/createOrderFromCart";
 
   const headers = {
     Authorization: "Bearer a195afc8aefc31aead95a2a2bbca102a34e57fce",
